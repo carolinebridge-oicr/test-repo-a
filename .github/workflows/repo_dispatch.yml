@@ -18,9 +18,9 @@ jobs:
 
     - name: repository dispatch jbrowse_components
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.PAT }}
         EVENT: auto_publish
         ORG: carolinebridge-oicr
         REPO: test-repo-b
       run: |
-        curl -d "{\"event_type\": \"${EVENT}\"}" -H "Content-Type: application/json" -H "Authorization: token ${GITHUB_TOKEN}" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${ORG}/${REPO}/dispatches"
+        curl -d "{\"event_type\": \"${EVENT}\"}" -H "Content-Type: application/json" -H "Authorization: Bearer ${GITHUB_TOKEN}" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${ORG}/${REPO}/dispatches"
