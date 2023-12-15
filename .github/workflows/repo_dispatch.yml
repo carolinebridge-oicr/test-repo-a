@@ -4,6 +4,7 @@ on: release
 
 jobs:
   repo_dispatch:
+    permissions: write-all
     name: Dispatch jbrowse-components release event to dependent GMOD repositories
     runs-on: ubuntu-latest
 
