@@ -1,0 +1,22 @@
+name: Repository dispatch
+
+on: release
+
+jobs:
+  repo_dispatch:
+    name: Dispatch jbrowse-components release event to dependent GMOD repositories
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+
+    - name: repository dispatch jbrowse_components
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        EVENT: auto_publish
+        ORG: carolinebridge-oicr
+        REPO: test-repo-b
+      run: |
+        curl -d "{\"event_type\": \"${EVENT}\"}" -H "Content-Type: application/json" -H "Authorization: token ${GITHUB_TOKEN}" -H "Accept: application/vnd.github.everest-preview+json" "https://api.github.com/repos/${ORG}/${REPO}/dispatches"
