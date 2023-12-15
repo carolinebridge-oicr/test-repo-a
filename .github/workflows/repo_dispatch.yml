@@ -14,7 +14,7 @@ jobs:
 
     - name: repository dispatch jbrowse_components
       env:
-        GITHUB_TOKEN: ${{ secrets.PAT }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         EVENT: auto_publish
         ORG: carolinebridge-oicr
         REPO: test-repo-b
