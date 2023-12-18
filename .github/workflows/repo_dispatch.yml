@@ -11,10 +11,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-      with:
-        fetch-depth: 1
-
-    - name: repository dispatch jbrowse_components
+    - name: Dispatch jbrowse-components release event to dependent GMOD repositories
       env:
         GITHUB_TOKEN: ${{ secrets.ACTIONS_KEY }}
         EVENT: auto_publish
