@@ -1,0 +1,22 @@
+name: Repository dispatch
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+  push: # remove this
+
+jobs:
+  repo_dispatch:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repo: ['carolinebridge-oicr/test-repo-b', 'carolinebridge-oicr/test-repo-c']
+
+    steps:
+      - name: Dispatch jbrowse-components release event to dependent GMOD repositories
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.ACTIONS_KEY }}
+          repository: ${{ matrix.repo }}
+          event-type: auto_publish
