@@ -9,9 +9,13 @@ on:
 jobs:
   repo_dispatch:
     runs-on: ubuntu-latest
+    env:
+      ORG: carolinebridge-oicr
     strategy:
       matrix:
-        repo: ['carolinebridge-oicr/test-repo-b', 'carolinebridge-oicr/test-repo-c']
+        repo:
+          - '${ORG}/test-repo-b'
+          - '${ORG}/test-repo-c'
 
     steps:
       - name: Dispatch jbrowse-components release event to dependent GMOD repositories
