@@ -16,6 +16,7 @@ jobs:
         repo:
           - 'carolinebridge-oicr/test-repo-b'
           - 'carolinebridge-oicr/test-repo-c'
+          - 'carolinebridge-oicr/jbrowse-react-linear-genome-view-nextjs-demo'
 
     steps:
       - name: Dispatch jbrowse-components release event to dependent GMOD repositories
