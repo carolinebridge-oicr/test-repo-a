@@ -25,4 +25,4 @@ jobs:
           token: ${{ secrets.ACTIONS_KEY }}
           repository: ${{ matrix.repo }}
           event-type: auto_publish
-          client-payload: '{"ref": "${{github.ref}}", "version": "${{ github.event.inputs.version }}"}'
+          client-payload: '{"ref": "${{github.ref}}", "version": "${{ github.event.release.tag_name }}"}'
