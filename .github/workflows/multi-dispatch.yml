@@ -1,4 +1,4 @@
-name: Repository dispatch
+name: Repository dispatch (multi)
 
 on:
   release:
@@ -25,3 +25,4 @@ jobs:
           token: ${{ secrets.ACTIONS_KEY }}
           repository: ${{ matrix.repo }}
           event-type: auto_publish
+          client-payload: '{"version": "${{ github.event.inputs.version }}"}'
