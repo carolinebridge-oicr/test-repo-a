@@ -15,7 +15,6 @@ jobs:
       matrix:
         repo:
           - 'carolinebridge-oicr/test-repo-b'
-          - 'carolinebridge-oicr/test-repo-c'
           - 'carolinebridge-oicr/jbrowse-react-linear-genome-view-nextjs-demo'
 
     steps:
